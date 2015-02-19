@@ -75,6 +75,6 @@ Types are tagged with the `!!` operator.
 
   * `Double !! Absolute`: A `Double` greater than or equal to zero
   * `Float !! Negative`: A negative `Float`
-  * `(Int, Int)`: A pair of `Int`s, with `_1 <= _2`
+  * `(Int, Int) !! Ordered`: A pair of `Int`s, with `_1 <= _2`
 
 Distributed under the MIT licence.
