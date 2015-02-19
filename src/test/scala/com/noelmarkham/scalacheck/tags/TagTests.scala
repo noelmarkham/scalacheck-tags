@@ -1,10 +1,10 @@
 package com.noelmarkham.scalacheck.tags
 
 import com.noelmarkham.scalacheck.tags.Tags._
-import org.scalacheck.Properties
-import org.scalacheck.Prop.forAll
+import org.scalacheck._
+import org.scalacheck.Prop._
 
-object TagTests extends Properties("Tags"){
+object TagTests extends Properties("Tags") {
 
   property("Absolute") = forAll { (x: Int !! Absolute) => x >= 0 }
 
