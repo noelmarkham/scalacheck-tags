@@ -1,5 +1,15 @@
 # ScalaCheck Tags
 
+## Get It
+
+```
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+```
+
+```
+"com.noelmarkham" %% "scalacheck-tags" % "0.0.1-SNAPSHOT" % "test"
+```
+
 ScalaCheck Tags is a lightweight library that allows you to constrain types for use in property-based tests.
 
 For example, if you require your ScalaCheck property to have a positive integer, you cannot simply use an `Int` without then "massaging" the arbitrarily generated value to be positive:
