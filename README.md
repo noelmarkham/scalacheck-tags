@@ -30,6 +30,8 @@ Currently, the following tags are supported for `Numeric` instances:
 
 Tuples containing a pair of `Numeric` values can also be tagged with `Ordered`.
 
+Tuples can be constrained to be unique with `Unique`.
+
 Types are tagged with the `!!` operator.
 
 ## Examples

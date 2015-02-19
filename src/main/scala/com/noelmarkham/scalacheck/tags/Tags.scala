@@ -14,6 +14,7 @@ object Tags {
   sealed trait Negative
 
   sealed trait Ordered
+  sealed trait Unique
 
   implicit def absoluteNumeric[T](implicit numeric: Numeric[T], arb: Arbitrary[T]): Arbitrary[T !! Absolute] = {
 
@@ -59,5 +60,19 @@ object Tags {
       a <- Arbitrary.arbitrary[T]
       b <- Arbitrary.arbitrary[T]
     } yield tag[(T, T), Ordered](numeric.min(a, b), numeric.max(a, b))
+  }
+
+  implicit def unique[T](implicit arb: Arbitrary[T]): Arbitrary[(T, T) !! Unique] = {
+
+    def genUnique: Gen[(T, T) !! Unique] = {
+      for {
+        a <- Arbitrary.arbitrary[T]
+        b <- Arbitrary.arbitrary[T]
+        u <- if (a == b) genUnique else Gen.const(tag[(T, T), Unique](a, b))
+      } yield u
+
+    }
+
+    Arbitrary(genUnique)
   }
 }
