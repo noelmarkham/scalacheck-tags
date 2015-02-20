@@ -49,7 +49,7 @@ Constraining just _three_ integers to be positive results in ScalaCheck giving u
 [info] ! Example.All numbers are positive: Gave up after only 10 passed tests. 91 tests were discarded.
 ```
 
-However, using ScalaCheck Tags ensures that the generated values meet the given criteria *before* the criteria is applied:
+However, using ScalaCheck Tags ensures that the criteria is part of the generation:
 
 ```scala
 property("All tagged numbers are positive") = forAll {
@@ -77,7 +77,7 @@ Currently, the following tags are supported for `Numeric` instances:
 
 Tuples containing a pair of `Numeric` values can also be tagged with `Ordered`.
 
-Tuples can be constrained to be unique with `Unique`.
+Tuples can be constrained to be distinct with `Unique`.
 
 Types are tagged with the `!!` operator.
 
